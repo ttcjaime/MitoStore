@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MitoStore.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/enums/Discograficas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/enums/Generos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/enums/Colores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/enums/Discograficas.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/enums/Discograficas.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +48,8 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="10" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="377" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/mysql-connector-java-5.1.44-bin.jar!/" />
@@ -112,6 +110,7 @@
       <workItem from="1765985617180" duration="6304000" />
       <workItem from="1766072266773" duration="4798000" />
       <workItem from="1766438608721" duration="8017000" />
+      <workItem from="1766517643070" duration="1354000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 package gui;
 
 import com.github.lgooddatepicker.components.DatePicker;
-import gui.enums.Discograficas;
+import gui.enums.Colores;
 import gui.enums.Generos;
 
 import javax.swing.*;
@@ -32,7 +32,6 @@ public class Vista extends JFrame {
     private JComboBox boxGeneroArt;
     private JTextField txtCancionesDis;
     private JPanel panelCancionesDis;
-    private JTextField txtColorDis;
     private JComboBox boxDiscoDis;
     private JComboBox boxArtDis;
     private JButton btnGuardarDisco;
@@ -43,6 +42,7 @@ public class Vista extends JFrame {
     private JPanel panel3Disco;
     private JPanel panel4Disco;
     private JSpinner spinnerPrecio;
+    private JComboBox boxColores;
 
     //discografica
     private JTextField txtPaisDisc;
@@ -88,6 +88,7 @@ public class Vista extends JFrame {
     private JTable tableArtista;
     private JTextField txtPaisArt;
 
+
     //JMenuBar
     JMenuItem itemOpciones;
     JMenuItem itemDesconectar;
@@ -117,15 +118,10 @@ public class Vista extends JFrame {
         //recorrer los enumerados y los cargo en el comboBox correspondiente
         //.values cogemos valores del enumerado
         //.getValor los añadimos al combo
-        for (Discograficas constant: Discograficas.values()) {
-            boxNombreDiscografica.addItem(constant.getValor());
-            boxDiscoDis.addItem(constant.getValor());
-            boxDiscoArt.addItem(constant.getValor());
+        for (Colores constant: Colores.values()) {
+            boxColores.addItem(constant.getValor());
         }
-        //lo coloco en una posicion que no tenga valor
-        boxNombreDiscografica.setSelectedIndex(-1);
-        boxDiscoDis.setSelectedIndex(-1);
-        boxDiscoArt.setSelectedIndex(-1);
+        boxColores.setSelectedIndex(-1);
         for (Generos constant: Generos.values()) {
             boxGeneroDis.addItem(constant.getValor());
             boxGeneroArt.addItem(constant.getValor());

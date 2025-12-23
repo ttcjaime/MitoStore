@@ -252,6 +252,99 @@ public class Modelo {
         }
     }
 
+    void eliminarAutor(int idAutor) {
+        String sentenciaSql = "DELETE FROM autor WHERE id_autor = ?";
+        PreparedStatement sentencia = null;
+
+        try {
+            sentencia = conexion.prepareStatement(sentenciaSql);
+            sentencia.setInt(1, idAutor);
+            sentencia.executeUpdate();
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            if (sentencia != null)
+                try {
+                    sentencia.close();
+                } catch (SQLException sqle) {
+                    sqle.printStackTrace();
+                }
+        }
+    }
+
+    void eliminarDiscografica(int idDiscografica) {
+        String sentenciaSql = "DELETE FROM discografica WHERE id_discografica = ?";
+        PreparedStatement sentencia = null;
+
+        try {
+            sentencia = conexion.prepareStatement(sentenciaSql);
+            sentencia.setInt(1, idDiscografica);
+            sentencia.executeUpdate();
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            if (sentencia != null)
+                try {
+                    sentencia.close();
+                } catch (SQLException sqle) {
+                    sqle.printStackTrace();
+                }
+        }
+    }
+
+    void eliminarDisco(int idDisco) {
+        String sentenciaSql = "DELETE FROM autor WHERE id_autor = ?";
+        PreparedStatement sentencia = null;
+
+        try {
+            sentencia = conexion.prepareStatement(sentenciaSql);
+            sentencia.setInt(1, idDisco);
+            sentencia.executeUpdate();
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            if (sentencia != null)
+                try {
+                    sentencia.close();
+                } catch (SQLException sqle) {
+                    sqle.printStackTrace();
+                }
+        }
+    }
+
+    ResultSet consultarArtista() throws SQLException {
+        String sentenciaSql = "SELECT a.id_artista as 'ID', " +
+                "a.nombre as 'Nombre artista', " +
+                "a.pais as 'Pais', " +
+                "a.genero as 'Genero', " +
+                "FROM artista a " +
+                "inner join ";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    void setPropValues(String ip, String user, String pass, String adminPass) {
+        try {
+            Properties prop = new Properties();
+            prop.setProperty("ip", ip);
+            prop.setProperty("user", user);
+            prop.setProperty("pass", pass);
+            prop.setProperty("admin", adminPass);
+            OutputStream out = new FileOutputStream("config.properties");
+            prop.store(out, null);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        this.ip = ip;
+        this.user = user;
+        this.password = pass;
+        this.adminPassword = adminPass;
+    }
+
     private void getPropValues() {
         InputStream inputStream = null;
         try {
