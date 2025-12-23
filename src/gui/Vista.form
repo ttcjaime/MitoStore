@@ -2,14 +2,19 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.Vista">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="663" height="489"/>
+      <xy x="20" y="20" width="1354" height="489"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-12964049"/>
+    </properties>
     <border type="none"/>
     <children>
       <tabbedpane id="ae112" binding="tabbedPane1" default-binding="true">
         <constraints border-constraint="Center"/>
-        <properties/>
+        <properties>
+          <background color="-12964049"/>
+          <foreground color="-1647416"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="dc93c" binding="panelArtista" layout-manager="FormLayout">
@@ -24,34 +29,42 @@
             <constraints>
               <tabbedpane title="Artista"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-923952"/>
+            </properties>
             <border type="none"/>
             <children>
-              <grid id="6658e" binding="primerPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="6658e" binding="panel1Artista" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
-                <properties/>
-                <border type="line">
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched">
                   <color color="-7367774"/>
                 </border>
                 <children>
-                  <grid id="fbae2" binding="panelNombre" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="fbae2" binding="panelNombreArt" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
-                    <border type="line"/>
+                    <properties>
+                      <background color="-1056314"/>
+                      <foreground color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
                     <children>
                       <component id="93ef6" class="javax.swing.JLabel">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <foreground color="-13951458"/>
                           <text value="Nombre"/>
                         </properties>
                       </component>
-                      <component id="ef15e" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                      <component id="ef15e" class="javax.swing.JTextField" binding="txtNombreArt">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
@@ -61,122 +74,117 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="d25b2" binding="panelGenero" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="d25b2" binding="panelGeneroArt" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
-                    <border type="line"/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
                     <children>
                       <component id="ac025" class="javax.swing.JLabel">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <foreground color="-13951458"/>
                           <text value="Genero"/>
                         </properties>
                       </component>
-                      <component id="f21fe" class="javax.swing.JTextField" default-binding="true">
+                      <component id="e96f2" class="javax.swing.JComboBox" binding="boxGeneroArt">
                         <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="-1"/>
-                          </grid>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties/>
                       </component>
                     </children>
                   </grid>
-                  <grid id="67011" binding="panelPais" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="67011" binding="panelPaisArt" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
-                    <border type="line"/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
                     <children>
                       <component id="54958" class="javax.swing.JLabel">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <foreground color="-13951458"/>
                           <text value="Pais"/>
                         </properties>
                       </component>
-                      <component id="4073c" class="javax.swing.JTextField" default-binding="true">
+                      <component id="4073c" class="javax.swing.JTextField" binding="txtPaisArt">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
-                        <properties/>
+                        <properties>
+                          <foreground color="-923952"/>
+                        </properties>
                       </component>
                     </children>
                   </grid>
                 </children>
               </grid>
-              <grid id="8a35e" binding="segundoPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="8a35e" binding="panel2Artista" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
-                <properties/>
-                <border type="line"/>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
                 <children>
-                  <grid id="66705" binding="panelDiscografia" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="66705" binding="panelDiscoArt" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
-                    <border type="line"/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
                     <children>
                       <component id="b9c3c" class="javax.swing.JLabel">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <foreground color="-13951458"/>
                           <text value="Discografica"/>
                         </properties>
                       </component>
-                      <component id="99f80" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+                      <component id="99f80" class="javax.swing.JComboBox" binding="boxDiscoArt">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                    </children>
-                  </grid>
-                  <grid id="ad895" binding="panelTipo" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints/>
-                    <properties/>
-                    <border type="line"/>
-                    <children>
-                      <component id="99e7e" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <text value="Tipo de Artista"/>
+                          <background color="-923952"/>
                         </properties>
-                      </component>
-                      <component id="463f" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
-                        <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
                       </component>
                     </children>
                   </grid>
                 </children>
               </grid>
-              <grid id="e41a9" binding="tercerPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="e41a9" binding="panel3Artista" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
-                <properties/>
-                <border type="line"/>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
                 <children>
-                  <grid id="d93f7" binding="panelBtnGuardar" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="d93f7" binding="panelBtnGuardarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
                     <border type="line"/>
                     <children>
                       <component id="647c3" class="javax.swing.JButton" binding="btnGuardar">
@@ -184,15 +192,19 @@
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
                           <text value="Guardar"/>
                         </properties>
                       </component>
                     </children>
                   </grid>
-                  <grid id="13668" binding="panelBtnAdd" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="13668" binding="panelBtnAddArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
                     <border type="line"/>
                     <children>
                       <component id="332a2" class="javax.swing.JButton" binding="btnAdd">
@@ -200,15 +212,19 @@
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
                           <text value="Añadir"/>
                         </properties>
                       </component>
                     </children>
                   </grid>
-                  <grid id="6f64d" binding="panelModificar" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="6f64d" binding="panelModificarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
                     <border type="line"/>
                     <children>
                       <component id="af9e4" class="javax.swing.JButton" binding="btnModificar">
@@ -216,6 +232,8 @@
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
                           <text value="Modificar"/>
                         </properties>
                       </component>
@@ -223,7 +241,7 @@
                   </grid>
                 </children>
               </grid>
-              <scrollpane id="edafd">
+              <scrollpane id="5cd21">
                 <constraints>
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -231,7 +249,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="4f984" class="javax.swing.JTable" binding="table1" default-binding="true">
+                  <component id="af343" class="javax.swing.JTable" binding="tableArtista">
                     <constraints/>
                     <properties/>
                   </component>
@@ -239,26 +257,638 @@
               </scrollpane>
             </children>
           </grid>
-          <grid id="9448d" binding="panelDisco" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="9448d" binding="panelDisco" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <colspec value="fill:d:grow"/>
             <constraints>
               <tabbedpane title="Disco"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-923952"/>
+            </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <grid id="83561" binding="panel1Disco" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched">
+                  <color color="-7367774"/>
+                </border>
+                <children>
+                  <grid id="3351d" binding="panelNombreDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-1056314"/>
+                      <foreground color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="8ea21" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Nombre"/>
+                        </properties>
+                      </component>
+                      <component id="87ec7" class="javax.swing.JTextField" binding="txtNombreDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="77241" binding="panelGeneroDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="fec1d" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Genero"/>
+                        </properties>
+                      </component>
+                      <component id="df0b7" class="javax.swing.JComboBox" binding="boxGeneroDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="d7ee" binding="panelPrecioDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="5c444" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Precio"/>
+                        </properties>
+                      </component>
+                      <component id="ac157" class="javax.swing.JSpinner" binding="spinnerPrecio">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="53fe5" binding="panel2Disco" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
+                <children>
+                  <grid id="f9bd2" binding="panelFechaDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="3cd6f" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Fecha de Lanzamiento"/>
+                        </properties>
+                      </component>
+                      <component id="4125b" class="com.github.lgooddatepicker.components.DatePicker" binding="fechaDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="2425f" binding="panelColorDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="fe742" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Color"/>
+                        </properties>
+                      </component>
+                      <component id="596f3" class="javax.swing.JTextField" binding="txtColorDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="c6d17" binding="panel3Disco" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
+                <children>
+                  <grid id="6823d" binding="panelDiscoDis" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="125dd" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Discografica"/>
+                        </properties>
+                      </component>
+                      <component id="c8cf9" class="javax.swing.JComboBox" binding="boxDiscoDis">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="125e5" binding="panelCancionesDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-1056314"/>
+                      <foreground color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="c1b7e" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Canciones"/>
+                        </properties>
+                      </component>
+                      <component id="5f25b" class="javax.swing.JTextField" binding="txtCancionesDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="9e759" binding="panelArtistaDis" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="ead18" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Artista"/>
+                        </properties>
+                      </component>
+                      <component id="877ea" class="javax.swing.JComboBox" binding="boxArtDis">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="fe029" binding="panel4Disco" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
+                <children>
+                  <grid id="bd4da" binding="panelBtnGuardarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="20c45" class="javax.swing.JButton" binding="btnGuardarDisco">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Guardar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="ca3c3" binding="panelBtnAddDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="d66c6" class="javax.swing.JButton" binding="btnAddDisco">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Añadir"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="d221a" binding="panelBtnModificarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="50ab" class="javax.swing.JButton" binding="btnModificarDisco">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Modificar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <scrollpane id="bf42a">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="80b95" class="javax.swing.JTable" binding="tableDisco">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
-          <grid id="2a617" binding="panelDiscografica" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="2a617" binding="panelDiscografica" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <colspec value="fill:d:grow"/>
             <constraints>
               <tabbedpane title="Discografica"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-923952"/>
+            </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <grid id="9a44a" binding="panel1Disc" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched">
+                  <color color="-7367774"/>
+                </border>
+                <children>
+                  <grid id="4a351" binding="panelNombreDisc" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-1056314"/>
+                      <foreground color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="9a451" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Nombre"/>
+                        </properties>
+                      </component>
+                      <component id="2f68a" class="javax.swing.JComboBox" binding="boxNombreDiscografica">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="c18fd" binding="panelPaisDisc" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="f3ca3" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Pais"/>
+                        </properties>
+                      </component>
+                      <component id="235a" class="javax.swing.JTextField" binding="txtPaisDisc">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="75d37" binding="panelWeb" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="8c08a" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Sitio Web"/>
+                        </properties>
+                      </component>
+                      <component id="3a098" class="javax.swing.JTextField" binding="webTxtDisc">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="bfb95" binding="panel2Disc" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched">
+                  <color color="-7367774"/>
+                </border>
+                <children>
+                  <grid id="c8c99" binding="panelEmail" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-1056314"/>
+                      <foreground color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="e90d7" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Email"/>
+                        </properties>
+                      </component>
+                      <component id="e428e" class="javax.swing.JTextField" binding="emailTxtDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="1de24" binding="panelTelefono" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-923952"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="deb32" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <foreground color="-13951458"/>
+                          <text value="Telefono"/>
+                        </properties>
+                      </component>
+                      <component id="d8b8a" class="javax.swing.JTextField" binding="txtTelefonoDisc">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="3c7bb" binding="panel3Disc" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <background color="-923952"/>
+                </properties>
+                <border type="etched"/>
+                <children>
+                  <grid id="ed961" binding="panelGuardarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="4a910" class="javax.swing.JButton" binding="btnGuardarDisc">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Guardar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="cda3a" binding="panelAddDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="e8fa4" class="javax.swing.JButton" binding="btnAddDisc">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Añadir"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="8583b" binding="panelModiDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="fdd8e" class="javax.swing.JButton" binding="btnModificarDisc">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Modificar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <scrollpane id="13263">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="9517e" class="javax.swing.JTable" binding="tableDiscografica">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
         </children>
       </tabbedpane>
+      <grid id="697b4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="West"/>
+        <properties>
+          <background color="-12964049"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="7d735" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-12964049"/>
+              <text value="........................."/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
