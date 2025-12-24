@@ -313,12 +313,51 @@ public class Modelo {
     }
 
     ResultSet consultarArtista() throws SQLException {
-        String sentenciaSql = "SELECT a.id_artista as 'ID', " +
-                "a.nombre as 'Nombre artista', " +
+        String sentenciaSql = "SELECT a.id as 'ID', " +
+                "a.nombre as 'Artista', " +
                 "a.pais as 'Pais', " +
                 "a.genero as 'Genero', " +
+                "d.nombre as 'Discografica' "+
                 "FROM artista a " +
-                "inner join ";
+                "INNER JOIN discografica d " +
+                "ON d.id = a.id_discografica";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    ResultSet consultarDiscografica() throws SQLException {
+        String sentenciaSql = "SELECT d.id as 'ID', " +
+                "d.nombre as 'Discografica', " +
+                "d.pais as 'Pais', " +
+                "d.sitio_web as 'Web', " +
+                "d.email_contacto as 'Email', " +
+                "d.telefono_contacto as 'Telefono'" +
+                "FROM discografica d";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    ResultSet consultarDisco() throws SQLException {
+        String sentenciaSql = "SELECT d.id as 'ID', " +
+                "d.nombre as 'Disco', " +
+                "d.genero as 'Genero', " +
+                "d.precio as 'Precio', " +
+                "d.fecha_lanzamiento as 'Fecha de Lanzamiento', " +
+                "d.color as 'color', " +
+                "d.canciones as 'canciones', " +
+                "ds.nombre as 'discografica', " +
+                "a.nombre as 'artista', " +
+                "FROM disco d " +
+                "INNER JOIN discografia ds " +
+                "ON ds.id = d.id_discografica " +
+                "INNER JOIN artista a " +
+                "ON a.id = d.id_artista";
         PreparedStatement sentencia = null;
         ResultSet resultado = null;
         sentencia = conexion.prepareStatement(sentenciaSql);
@@ -368,6 +407,57 @@ public class Modelo {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean existeArtista(String nombre) {
+        String artistaConsulta = "SELECT existeArtista(?)";
+        PreparedStatement function;
+        boolean artistaExiste = false;
+        try {
+            function = conexion.prepareStatement(artistaConsulta);
+            function.setString(1, nombre);
+            ResultSet rs = function.executeQuery();
+            rs.next();
+
+            artistaExiste = rs.getBoolean(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return artistaExiste;
+    }
+
+    public boolean existeDisco(String nombre) {
+        String discoConsulta = "SELECT existeDisco(?)";
+        PreparedStatement function;
+        boolean existeDisco = false;
+        try {
+            function = conexion.prepareStatement(discoConsulta);
+            function.setString(1, nombre);
+            ResultSet rs = function.executeQuery();
+            rs.next();
+
+            existeDisco = rs.getBoolean(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return existeDisco;
+    }
+
+    public boolean existeDiscografica(String nombre) {
+        String discograficaConsulta = "SELECT existeDiscografica(?)";
+        PreparedStatement function;
+        boolean existeDiscografica = false;
+        try {
+            function = conexion.prepareStatement(discograficaConsulta);
+            function.setString(1, nombre);
+            ResultSet rs = function.executeQuery();
+            rs.next();
+
+            existeDiscografica = rs.getBoolean(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return existeDiscografica;
     }
 
 }

@@ -32,3 +32,36 @@ id_artista int not null,
 foreign key (id_discografica) references discografica (id),
 foreign key (id_artista) references artista (id)
 );
+
+DELIMITER ||
+
+CREATE FUNCTION existeArtista(f_name varchar(50))
+RETURNS BIT
+BEGIN
+RETURN EXISTS (
+SELECT 1
+FROM artista
+WHERE nombre = f_name
+);
+END;
+
+DELIMITER ||
+CREATE FUNCTION existeDisco(f_name varchar(50))
+RETURNS BIT
+BEGIN
+RETURN EXISTS (
+SELECT 1
+FROM disco
+WHERE nombre = f_name
+);
+END;
+
+CREATE FUNCTION existeDiscografica(f_name varchar(50))
+RETURNS BIT
+BEGIN
+RETURN EXISTS (
+SELECT 1
+FROM discografica
+WHERE nombre = f_name
+);
+END;

@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/enums/Colores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/OptionDialog.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/OptionDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/enums/Discograficas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MitoStore.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MitoStore.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/enums/Discograficas.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -111,6 +109,7 @@
       <workItem from="1766072266773" duration="4798000" />
       <workItem from="1766438608721" duration="8017000" />
       <workItem from="1766517643070" duration="1354000" />
+      <workItem from="1766591774142" duration="4581000" />
     </task>
     <servers />
   </component>
