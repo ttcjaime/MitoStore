@@ -35,11 +35,12 @@ public class Modelo {
 
         try {
             conexion = DriverManager.getConnection(
-                    "jdbc:mysql://"+ip+":3306/mibase",user, password);
+                    "jdbc:mysql://"+"localhost"+":3306/mitostore","root", "");
+            System.out.println("Conectado");
         } catch (SQLException sqle) {
             try {
                 conexion = DriverManager.getConnection(
-                        "jdbc:mysql://"+ip+":3306/",user, password);
+                        "jdbc:mysql://"+"localhost"+":3306/mitostore","root", "");
 
                 PreparedStatement statement = null;
 
@@ -57,6 +58,11 @@ public class Modelo {
             }
         }
     }
+
+    public Connection getConexion() {
+        return conexion;
+    }
+
 
     private String leerFichero() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("basedatos_java.sql")) ;

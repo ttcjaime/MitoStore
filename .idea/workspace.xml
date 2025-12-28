@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/OptionDialog.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/OptionDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MitoStore.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MitoStore.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,20 +51,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="377" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="291" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/mysql-connector-java-5.1.44-bin.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\libs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -110,6 +115,8 @@
       <workItem from="1766438608721" duration="8017000" />
       <workItem from="1766517643070" duration="1354000" />
       <workItem from="1766591774142" duration="4581000" />
+      <workItem from="1766685407169" duration="4645000" />
+      <workItem from="1766938670440" duration="6022000" />
     </task>
     <servers />
   </component>

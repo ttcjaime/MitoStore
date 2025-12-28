@@ -87,6 +87,21 @@ public class Vista extends JFrame {
      JPanel panelModificarArt;
      JTable tableArtista;
      JTextField txtPaisArt;
+    private JTextField txtBuscarArt;
+    private JPanel panelBuscarArt;
+    private JButton btnBuscarArt;
+    private JPanel panelBuscarDis;
+    private JButton btnBuscarDis;
+    private JTextField txtBuscarDis;
+    private JPanel panelBuscarDisc;
+    private JButton btnBuscarDisc;
+    private JTextField txtBuscarDisc;
+    private JPanel panelOrdenarArt;
+    private JButton btnOrdenarArt;
+    private JPanel panelOrdenarDisc;
+    private JButton btnOrdenar;
+    private JButton btnOrdenarDis;
+    private JPanel panelOrdenarDis;
 
 
     //JMenuBar
@@ -97,6 +112,11 @@ public class Vista extends JFrame {
     DefaultTableModel dtmArtistas;
     DefaultTableModel dtmDiscografica;
     DefaultTableModel dtmDisco;
+
+    OptionDialog optionDialog;
+    JDialog adminPasswordDialog;
+    JButton btnValidate;
+    JPasswordField adminPassword;
 
     public Vista() {
         super("MitoStore");
@@ -157,6 +177,22 @@ public class Vista extends JFrame {
 
         this.dtmDisco=new DefaultTableModel();
         this.tableDisco.setModel(dtmDisco);
+    }
+
+    private void setAdminDialog() {
+        btnValidate = new JButton("Validar");
+        btnValidate.setActionCommand("abrirOpciones");
+        adminPassword = new JPasswordField();
+        //dimension al cuadro de texto
+        adminPassword.setPreferredSize(new Dimension(100,26));
+        Object[] options=new Object[] {adminPassword,btnValidate};
+        JOptionPane jop = new JOptionPane("Introduce la contraseña",JOptionPane.WARNING_MESSAGE,
+                JOptionPane.YES_NO_OPTION,null,options);
+        adminPasswordDialog = new JDialog(this,"Opciones",true);
+        adminPasswordDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        adminPasswordDialog.setContentPane(jop);
+        adminPasswordDialog.pack();
+        adminPasswordDialog.setLocationRelativeTo(this);
     }
 
 }

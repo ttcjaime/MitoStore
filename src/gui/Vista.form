@@ -179,6 +179,34 @@
                 </properties>
                 <border type="etched"/>
                 <children>
+                  <grid id="9310b" binding="panelBuscarArt" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="3376e" class="javax.swing.JButton" binding="btnBuscarArt">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Buscar"/>
+                        </properties>
+                      </component>
+                      <component id="d7898" class="javax.swing.JTextField" binding="txtBuscarArt">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
                   <grid id="d93f7" binding="panelBtnGuardarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -235,6 +263,26 @@
                           <background color="-12964049"/>
                           <foreground color="-923952"/>
                           <text value="Modificar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="629fd" binding="panelOrdenarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="3e0f6" class="javax.swing.JButton" binding="btnOrdenarArt">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Ordenar"/>
                         </properties>
                       </component>
                     </children>
@@ -520,6 +568,34 @@
                 </properties>
                 <border type="etched"/>
                 <children>
+                  <grid id="ecadc" binding="panelBuscarDis" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="5dfe4" class="javax.swing.JButton" binding="btnBuscarDis">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Buscar"/>
+                        </properties>
+                      </component>
+                      <component id="4d153" class="javax.swing.JTextField" binding="txtBuscarDis">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
                   <grid id="bd4da" binding="panelBtnGuardarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -576,6 +652,26 @@
                           <background color="-12964049"/>
                           <foreground color="-923952"/>
                           <text value="Modificar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="af44f" binding="panelOrdenarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="9dd49" class="javax.swing.JButton" binding="btnOrdenarDis">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Ordenar"/>
                         </properties>
                       </component>
                     </children>
@@ -788,6 +884,34 @@
                 </properties>
                 <border type="etched"/>
                 <children>
+                  <grid id="42cdc" binding="panelBuscarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="5b99f" class="javax.swing.JButton" binding="btnBuscarDisc">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Buscar"/>
+                        </properties>
+                      </component>
+                      <component id="e31b9" class="javax.swing.JTextField" binding="txtBuscarDisc">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
                   <grid id="ed961" binding="panelGuardarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -848,6 +972,26 @@
                       </component>
                     </children>
                   </grid>
+                  <grid id="2d577" binding="panelOrdenarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="bc0b6" class="javax.swing.JButton" binding="btnOrdenar">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Ordenar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
                 </children>
               </grid>
               <scrollpane id="13263">
@@ -868,8 +1012,7 @@
           </grid>
         </children>
       </tabbedpane>
-      <grid id="697b4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <grid id="697b4" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="West"/>
         <properties>
           <background color="-12964049"/>
@@ -877,9 +1020,7 @@
         <border type="none"/>
         <children>
           <component id="7d735" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
+            <constraints border-constraint="Center"/>
             <properties>
               <foreground color="-12964049"/>
               <text value="........................."/>
