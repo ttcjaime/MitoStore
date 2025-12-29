@@ -207,26 +207,6 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="d93f7" binding="panelBtnGuardarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints/>
-                    <properties>
-                      <background color="-12964049"/>
-                    </properties>
-                    <border type="line"/>
-                    <children>
-                      <component id="647c3" class="javax.swing.JButton" binding="btnGuardar">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-12964049"/>
-                          <foreground color="-923952"/>
-                          <text value="Guardar"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
                   <grid id="13668" binding="panelBtnAddArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -243,6 +223,26 @@
                           <background color="-12964049"/>
                           <foreground color="-923952"/>
                           <text value="Añadir"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="2cbe" binding="panelBorrarArt" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="3aee3" class="javax.swing.JButton" binding="btnBorrarArt">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Borrar"/>
                         </properties>
                       </component>
                     </children>
@@ -596,26 +596,6 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="bd4da" binding="panelBtnGuardarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints/>
-                    <properties>
-                      <background color="-12964049"/>
-                    </properties>
-                    <border type="line"/>
-                    <children>
-                      <component id="20c45" class="javax.swing.JButton" binding="btnGuardarDisco">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-12964049"/>
-                          <foreground color="-923952"/>
-                          <text value="Guardar"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
                   <grid id="ca3c3" binding="panelBtnAddDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -632,6 +612,26 @@
                           <background color="-12964049"/>
                           <foreground color="-923952"/>
                           <text value="Añadir"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="fcd0e" binding="panelBorrarDis" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="fc468" class="javax.swing.JButton" binding="btnBorrarDis">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Borrar"/>
                         </properties>
                       </component>
                     </children>
@@ -741,9 +741,11 @@
                           <text value="Nombre"/>
                         </properties>
                       </component>
-                      <component id="2f68a" class="javax.swing.JComboBox" binding="boxNombreDiscografica">
+                      <component id="ee66d" class="javax.swing.JTextField" binding="txtNombreDisc">
                         <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
                         </constraints>
                         <properties/>
                       </component>
@@ -912,26 +914,6 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="ed961" binding="panelGuardarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints/>
-                    <properties>
-                      <background color="-12964049"/>
-                    </properties>
-                    <border type="line"/>
-                    <children>
-                      <component id="4a910" class="javax.swing.JButton" binding="btnGuardarDisc">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-12964049"/>
-                          <foreground color="-923952"/>
-                          <text value="Guardar"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
                   <grid id="cda3a" binding="panelAddDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints/>
@@ -948,6 +930,26 @@
                           <background color="-12964049"/>
                           <foreground color="-923952"/>
                           <text value="Añadir"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="841a1" binding="panelBorrarDisc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints/>
+                    <properties>
+                      <background color="-12964049"/>
+                    </properties>
+                    <border type="line"/>
+                    <children>
+                      <component id="7174a" class="javax.swing.JButton" binding="btnBorrarDisc">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-12964049"/>
+                          <foreground color="-923952"/>
+                          <text value="Borrar"/>
                         </properties>
                       </component>
                     </children>
@@ -1020,7 +1022,7 @@
         <border type="none"/>
         <children>
           <component id="7d735" class="javax.swing.JLabel">
-            <constraints border-constraint="Center"/>
+            <constraints border-constraint="East"/>
             <properties>
               <foreground color="-12964049"/>
               <text value="........................."/>

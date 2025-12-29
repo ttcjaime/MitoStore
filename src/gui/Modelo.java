@@ -350,20 +350,18 @@ public class Modelo {
     }
 
     ResultSet consultarDisco() throws SQLException {
-        String sentenciaSql = "SELECT d.id as 'ID', " +
-                "d.nombre as 'Disco', " +
-                "d.genero as 'Genero', " +
-                "d.precio as 'Precio', " +
-                "d.fecha_lanzamiento as 'Fecha de Lanzamiento', " +
-                "d.color as 'color', " +
-                "d.canciones as 'canciones', " +
-                "ds.nombre as 'discografica', " +
-                "a.nombre as 'artista', " +
+        String sentenciaSql = "SELECT d.id AS ID, " +
+                "d.nombre AS Disco, " +
+                "d.genero AS Genero, " +
+                "d.precio AS Precio, " +
+                "d.fecha_lanzamiento AS Fecha_Lanzamiento, " +
+                "d.color AS Color, " +
+                "d.canciones AS Canciones, " +
+                "ds.nombre AS Discografica, " +
+                "a.nombre AS Artista " +
                 "FROM disco d " +
-                "INNER JOIN discografia ds " +
-                "ON ds.id = d.id_discografica " +
-                "INNER JOIN artista a " +
-                "ON a.id = d.id_artista";
+                "INNER JOIN discografica ds ON ds.id = d.id_discografica " +
+                "INNER JOIN artista a ON a.id = d.id_artista";
         PreparedStatement sentencia = null;
         ResultSet resultado = null;
         sentencia = conexion.prepareStatement(sentenciaSql);

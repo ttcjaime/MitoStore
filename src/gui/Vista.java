@@ -22,8 +22,7 @@ public class Vista extends JFrame {
      JPanel panelColorDis;
      JPanel panelDiscoDis;
      JPanel panelArtistaDis;
-     JPanel panelBtnGuardarDis;
-     JPanel panelBtnAddDis;
+    JPanel panelBtnAddDis;
      JPanel panelBtnModificarDis;
      JTextField txtNombreDis;
      DatePicker fechaDis;
@@ -54,8 +53,7 @@ public class Vista extends JFrame {
      JButton btnModificarDisc;
      JPanel panelModiDisc;
      JPanel panelAddDisc;
-     JPanel panelGuardarDisc;
-     JPanel panel3Disc;
+    JPanel panel3Disc;
      JPanel panel2Disc;
      JPanel panelEmail;
      JPanel panelTelefono;
@@ -80,28 +78,34 @@ public class Vista extends JFrame {
      JPanel panelPaisArt;
      JPanel panelDiscoArt;
      JPanel panel3Artista;
-     JPanel panelBtnGuardarArt;
-     JButton btnAdd;
+    JButton btnAdd;
      JButton btnModificar;
      JPanel panelBtnAddArt;
      JPanel panelModificarArt;
      JTable tableArtista;
      JTextField txtPaisArt;
-    private JTextField txtBuscarArt;
-    private JPanel panelBuscarArt;
-    private JButton btnBuscarArt;
-    private JPanel panelBuscarDis;
-    private JButton btnBuscarDis;
-    private JTextField txtBuscarDis;
-    private JPanel panelBuscarDisc;
-    private JButton btnBuscarDisc;
-    private JTextField txtBuscarDisc;
-    private JPanel panelOrdenarArt;
-    private JButton btnOrdenarArt;
-    private JPanel panelOrdenarDisc;
-    private JButton btnOrdenar;
-    private JButton btnOrdenarDis;
-    private JPanel panelOrdenarDis;
+     JTextField txtBuscarArt;
+     JPanel panelBuscarArt;
+     JButton btnBuscarArt;
+     JPanel panelBuscarDis;
+     JButton btnBuscarDis;
+     JTextField txtBuscarDis;
+     JPanel panelBuscarDisc;
+     JButton btnBuscarDisc;
+     JTextField txtBuscarDisc;
+     JPanel panelOrdenarArt;
+     JButton btnOrdenarArt;
+     JPanel panelOrdenarDisc;
+     JButton btnOrdenar;
+     JButton btnOrdenarDis;
+     JPanel panelOrdenarDis;
+     JButton btnBorrarDisc;
+     JButton btnBorrarDis;
+     JButton btnBorrarArt;
+     JPanel panelBorrarArt;
+     JPanel panelBorrarDis;
+     JPanel panelBorrarDisc;
+     JTextField txtNombreDisc;
 
 
     //JMenuBar
@@ -118,20 +122,27 @@ public class Vista extends JFrame {
     JButton btnValidate;
     JPasswordField adminPassword;
 
+    private SpinnerNumberModel spinnerPrecioModel;
+
+
     public Vista() {
         super("MitoStore");
         initFrame();
     }
 
     public void initFrame() {
-        this.setVisible(true);
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setSize(new Dimension(this.getWidth()+200,this.getHeight()));
+        this.setVisible(true);
         this.setLocationRelativeTo(null);
+        optionDialog = new OptionDialog(this);
         setMenu();
+        setAdminDialog();
         setEnumComboBox();
+        setTableModels();
+        setSpinnerModels();
     }
 
     private void setEnumComboBox() {
@@ -179,6 +190,11 @@ public class Vista extends JFrame {
         this.tableDisco.setModel(dtmDisco);
     }
 
+    private void setSpinnerModels() {
+        spinnerPrecioModel  = new SpinnerNumberModel(1,1,500,1);
+        spinnerPrecio.setModel(spinnerPrecioModel);
+    }
+
     private void setAdminDialog() {
         btnValidate = new JButton("Validar");
         btnValidate.setActionCommand("abrirOpciones");
@@ -193,6 +209,15 @@ public class Vista extends JFrame {
         adminPasswordDialog.setContentPane(jop);
         adminPasswordDialog.pack();
         adminPasswordDialog.setLocationRelativeTo(this);
+    }
+
+    public int getPrecio() {
+        Object value = spinnerPrecio.getValue();
+        if (value instanceof Number) {
+            return ((Number) value).intValue();
+        } else {
+            return 0; // o lanzar una excepción
+        }
     }
 
 }

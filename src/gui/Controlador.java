@@ -1,5 +1,7 @@
 package gui;
 
+import util.Util;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -16,30 +18,47 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
     private Modelo modelo;
     private Vista vista;
     boolean refrescar;
+    String camposVacios;
 
     public Controlador(Modelo modelo, Vista vista) {
         this.modelo = modelo;
         this.vista = vista;
         modelo.conectar();
-        System.out.println("Conexión después de conectar = " + modelo.getConexion());
-        refrescarTodo();
         setOptions();
+        addActionListener(this);
+        addWindowListeners(this);
+        addItemListeners(this);
+        refrescarTodo();
+        iniciar();
     }
 
     private void addActionListener(ActionListener listener) {
         vista.btnAdd.addActionListener(listener);
+        vista.btnAdd.setActionCommand("addArtista");
         vista.btnAddDisc.addActionListener(listener);
+        vista.btnAddDisc.setActionCommand("addDiscografica");
         vista.btnAddDisco.addActionListener(listener);
-        vista.btnGuardar.addActionListener(listener);
-        vista.btnGuardarDisc.addActionListener(listener);
-        vista.btnGuardarDisco.addActionListener(listener);
+        vista.btnAddDisco.setActionCommand("addDisco");
         vista.btnModificarDisc.addActionListener(listener);
+        vista.btnModificarDisc.setActionCommand("modificarDiscografica");
         vista.btnModificar.addActionListener(listener);
+        vista.btnModificar.setActionCommand("modificarArtista");
         vista.btnModificarDisco.addActionListener(listener);
+        vista.btnModificarDisco.setActionCommand("modificarDisco");
+        vista.btnBorrarArt.addActionListener(listener);
+        vista.btnBorrarArt.setActionCommand("borrarArtista");
+        vista.btnBorrarDis.addActionListener(listener);
+        vista.btnBorrarDis.setActionCommand("borrarDisco");
+        vista.btnBorrarDisc.addActionListener(listener);
+        vista.btnBorrarDisc.setActionCommand("borrarDiscografica");
+        vista.itemDesconectar.addActionListener(listener);
+        vista.itemOpciones.addActionListener(listener);
+        vista.itemSalir.addActionListener(listener);
     }
 
     private void refrescarTodo() {
         refrescarArtistas();
+        refrescarDisco();
         refrescar = false;
     }
 
@@ -183,7 +202,100 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        String command = e.getActionCommand();
+        switch (command) {
+            case "Opciones":
+                vista.adminPasswordDialog.setVisible(true);
+                break;
+            case "Desconectar":
+                modelo.desconectar();
+                break;
+            case "Salir":
+                System.exit(0);
+                break;
+            case "abrirOpciones":
+                if (String.valueOf(vista.adminPassword.getPassword()).equals(modelo.getAdminPassword())) {
+                    vista.adminPassword.setText("");
+                    vista.adminPasswordDialog.dispose();
+                    vista.optionDialog.setVisible(true);
+                } else {
+                    Util.showErrorAlert("La contraseña introducida no es la correcta");
+                }
+                break;
+            case "guardarOpciones":
+                modelo.setPropValues(vista.optionDialog.txtIp.getText(), vista.optionDialog.txtUsuario.getText(),
+                        String.valueOf(vista.optionDialog.txtPswd.getPassword()), String.valueOf(vista.optionDialog.txtAdminPswd.getPassword()));
+                vista.optionDialog.dispose();
+                vista.dispose();
+                new Controlador(new Modelo(), new Vista());;
+                break;
+            case "addArtista":
+                    if (algunCampoAutorVacio()) {
+                        Util.showErrorAlert(camposAutorVacio());
+                        camposVacios = "";
+                    } else if (modelo.existeArtista(vista.txtNombreArt.getText())) {
+                        Util.showErrorAlert("El artista " + vista.txtNombreArt.getText() + " ya existe \n" +
+                                "Introduce un artista diferente");
+                        vista.tableArtista.clearSelection();
+                    } else {
+                        modelo.insertarArtista(vista.txtNombreArt.getText(), (String )vista.boxGeneroArt.getSelectedItem(), vista.txtPaisArt.getText(), (String) vista.boxDiscoArt.getSelectedItem());
+                        refrescarArtistas();
+                    }
+                borrarCamposArtista();
+                break;
+            case "modificarArtista":
+                    if (algunCampoAutorVacio()) {
+                        Util.showErrorAlert(camposAutorVacio());
+                        camposVacios = "";
+                        vista.tableArtista.clearSelection();
+                    } else {
+                        modelo.modificarArtista(vista.txtNombreArt.getText(), (String )vista.boxGeneroArt.getSelectedItem(),
+                                vista.txtPaisArt.getText(), (String) vista.boxDiscoArt.getSelectedItem(),
+                                (Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                        refrescarArtistas();
+                    }
+                    borrarCamposArtista();
+                    break;
+            case "borrarArtista":
+                modelo.eliminarAutor((Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                borrarCamposArtista();
+                refrescarArtistas();
+                break;
+            case "addDisco":
+                if (algunCampoDiscoVacio()) {
+                    Util.showErrorAlert(camposDiscoVacio());
+                    camposVacios = "";
+                } else if (modelo.existeDisco(vista.txtNombreDis.getText())) {
+                    Util.showErrorAlert("El artista " + vista.txtNombreArt.getText() + " ya existe \n" +
+                            "Introduce un artista diferente");
+                    vista.tableArtista.clearSelection();
+                } else {
+                    modelo.insertarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
+                            vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
+                            vista.txtCancionesDis.getText(), (String) vista.boxArtDis.getSelectedItem());
+                    refrescarDisco();
+                }
+                borrarCamposDiscos();
+                break;
+            case "modificarDisco":
+                if (algunCampoDiscoVacio()) {
+                    Util.showErrorAlert(camposDiscoVacio());
+                    camposVacios = "";
+                    vista.tableDisco.clearSelection();
+                } else {
+                    modelo.modificarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
+                            vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
+                            vista.txtCancionesDis.getText(), (String) vista.boxArtDis.getSelectedItem(), (Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
+                    refrescarDisco();
+                }
+                borrarCamposDiscos();
+                break;
+            case "borrarDisco":
+                modelo.eliminarDisco((Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
+                borrarCamposDiscos();
+                refrescarDisco();
+                break;
+        }
     }
 
     private void borrarCamposDiscografica() {
@@ -220,6 +332,14 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         }
     }
 
+    private void refrescarDisco() {
+        try {
+            vista.tableDisco.setModel(construirTableModelDisco(modelo.consultarDisco()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private DefaultTableModel construirTableModelArtista(ResultSet rs)
             throws SQLException {
 
@@ -243,6 +363,29 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
 
     }
 
+    private DefaultTableModel construirTableModelDisco(ResultSet rs)
+            throws SQLException {
+
+        ResultSetMetaData metaData = rs.getMetaData();
+
+        // names of columns
+        Vector<String> columnNames = new Vector<>();
+        int columnCount = metaData.getColumnCount();
+        for (int column = 1; column <= columnCount; column++) {
+            columnNames.add(metaData.getColumnLabel(column));
+        }
+
+        // data of the table
+        Vector<Vector<Object>> data = new Vector<>();
+        setDataVector(rs, columnCount, data);
+
+        System.out.println(rs);
+        vista.dtmDisco.setDataVector(data, columnNames);
+
+        return vista.dtmDisco;
+
+    }
+
     private void setDataVector(ResultSet rs, int columnCount, Vector<Vector<Object>> data) throws SQLException {
         while (rs.next()) {
             Vector<Object> vector = new Vector<>();
@@ -258,6 +401,69 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         vista.optionDialog.txtUsuario.setText(modelo.getUser());
         vista.optionDialog.txtPswd.setText(modelo.getPassword());
         vista.optionDialog.txtAdminPswd.setText(modelo.getAdminPassword());
+    }
+
+    private boolean algunCampoAutorVacio() {
+        if (vista.txtNombreArt.getText().isEmpty() || vista.txtPaisArt.getText().isEmpty() || vista.boxGeneroArt.getSelectedItem() == null
+         || vista.boxGeneroArt.getSelectedItem() == null) {
+            return true;
+        }
+        return false;
+    }
+
+    private String camposAutorVacio() {
+        camposVacios = "Los siguientes campos estan vacios: \n";
+        if (vista.txtNombreArt.getText().isEmpty()) {
+            camposVacios += "Nombre \n";
+        }
+        if (vista.txtPaisArt.getText().isEmpty()) {
+            camposVacios += "Pais \n";
+        }
+        if (vista.boxGeneroArt.getSelectedItem() == null) {
+            camposVacios += "Genero \n";
+        }
+        if (vista.boxDiscoArt.getSelectedItem() == null) {
+            camposVacios += "Discografica";
+        }
+        return camposVacios;
+    }
+
+    private boolean algunCampoDiscoVacio() {
+        if (vista.txtNombreDis.getText().isEmpty() || vista.txtCancionesDis.getText().isEmpty() || vista.boxGeneroDis.getSelectedItem() == null
+                || vista.fechaDis.getText().isEmpty() || vista.boxColores.getSelectedItem() == null || vista.boxDiscoDis.getSelectedItem() == null
+                || vista.boxArtDis.getSelectedItem() == null) {
+            return true;
+        }
+        return false;
+    }
+
+    private String camposDiscoVacio() {
+        camposVacios = "Los siguientes campos estan vacios: \n";
+        if (vista.txtNombreDis.getText().isEmpty()) {
+            camposVacios += "Nombre \n";
+        }
+        if (vista.txtCancionesDis.getText().isEmpty()) {
+            camposVacios += "Canciones \n";
+        }
+        if (vista.boxGeneroDis.getSelectedItem() == null) {
+            camposVacios += "Genero \n";
+        }
+        if (vista.fechaDis.getText().isEmpty()) {
+            camposVacios += "Fecha \n";
+        }
+        if (vista.boxColores.getSelectedItem() == null) {
+            camposVacios += "Colores \n";
+        }
+        if (vista.boxDiscoDis.getSelectedItem() == null) {
+            camposVacios += "Discografica \n";
+        }
+        if (vista.boxArtDis.getSelectedItem() == null) {
+            camposVacios += "Artista \n";
+        }
+        return camposVacios;
+    }
+
+    private void addItemListeners(Controlador controlador) {
     }
 
     @Override
