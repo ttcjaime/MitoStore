@@ -57,6 +57,7 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
     }
 
     private void refrescarTodo() {
+        refrescarDiscografica();
         refrescarArtistas();
         refrescarDisco();
         refrescar = false;
@@ -96,7 +97,7 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
             }
         });
 
-        vista.tableDiscografica.setCellSelectionEnabled(true);
+        vista.tableDisco.setCellSelectionEnabled(true);
         ListSelectionModel cellSelectedModel2 = vista.tableDisco.getSelectionModel();
         cellSelectedModel2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -130,8 +131,8 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         });
 
         vista.tableDiscografica.setCellSelectionEnabled(true);
-        ListSelectionModel cellSelectedModel3 = vista.tableArtista.getSelectionModel();
-        cellSelectedModel2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ListSelectionModel cellSelectedModel3 = vista.tableDiscografica.getSelectionModel();
+        cellSelectedModel3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         cellSelectedModel3.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -140,11 +141,11 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                         && !((ListSelectionModel) e.getSource()).isSelectionEmpty()) {
                     if (e.getSource().equals(vista.tableDiscografica.getSelectionModel())) {
                         int row = vista.tableDiscografica.getSelectedRow();
-                        vista.boxNombreDiscografica.setSelectedItem(String.valueOf(vista.tableDisco.getValueAt(row, 1)));
-                        vista.txtPaisDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 2)));
-                        vista.webTxtDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 3)));
-                        vista.emailTxtDis.setText(String.valueOf(vista.tableDisco.getValueAt(row, 4)));
-                        vista.txtTelefonoDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 5)));
+                        vista.txtNombreDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 1)));
+                        vista.txtPaisDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 2)));
+                        vista.webTxtDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 3)));
+                        vista.emailTxtDis.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 4)));
+                        vista.txtTelefonoDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 5)));
                     } else if (e.getValueIsAdjusting()
                             && ((ListSelectionModel) e.getSource()).isSelectionEmpty() && !refrescar) {
                         if (e.getSource().equals(vista.tableArtista.getSelectionModel())) {
@@ -182,11 +183,11 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                 vista.spinnerPrecio.setValue((Integer) vista.tableDisco.getValueAt(row, 8));
             } else if (e.getSource().equals(vista.tableDiscografica.getSelectionModel())) {
                 int row = vista.tableDiscografica.getSelectedRow();
-                vista.boxNombreDiscografica.setSelectedItem(String.valueOf(vista.tableDisco.getValueAt(row, 1)));
-                vista.txtPaisDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 2)));
-                vista.webTxtDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 3)));
-                vista.emailTxtDis.setText(String.valueOf(vista.tableDisco.getValueAt(row, 4)));
-                vista.txtTelefonoDisc.setText(String.valueOf(vista.tableDisco.getValueAt(row, 5)));
+                vista.txtNombreDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 1)));
+                vista.txtPaisDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 2)));
+                vista.webTxtDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 3)));
+                vista.emailTxtDis.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 4)));
+                vista.txtTelefonoDisc.setText(String.valueOf(vista.tableDiscografica.getValueAt(row, 5)));
             } else if (e.getValueIsAdjusting()
                     && ((ListSelectionModel) e.getSource()).isSelectionEmpty() && !refrescar) {
                 if (e.getSource().equals(vista.tableDiscografica.getSelectionModel())) {
@@ -268,7 +269,7 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                 } else if (modelo.existeDisco(vista.txtNombreDis.getText())) {
                     Util.showErrorAlert("El artista " + vista.txtNombreArt.getText() + " ya existe \n" +
                             "Introduce un artista diferente");
-                    vista.tableArtista.clearSelection();
+                    vista.tableDisco.clearSelection();
                 } else {
                     modelo.insertarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
                             vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
@@ -295,11 +296,43 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                 borrarCamposDiscos();
                 refrescarDisco();
                 break;
+            case "addDiscografica":
+                if (algunCampoDiscograficaVacio()) {
+                    Util.showErrorAlert(camposDiscograficaVacio());
+                    camposVacios = "";
+                } else if (modelo.existeDiscografica(vista.txtNombreDis.getText())) {
+                    Util.showErrorAlert("La discografica " + vista.txtNombreArt.getText() + " ya existe \n" +
+                            "Introduce una diferente");
+                    vista.tableDiscografica.clearSelection();
+                } else {
+                    modelo.insertarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
+                            vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()));
+                    refrescarDiscografica();
+                }
+                borrarCamposDiscografica();
+                break;
+            case "modificarDiscografica":
+                if (algunCampoDiscograficaVacio()) {
+                    Util.showErrorAlert(camposDiscograficaVacio());
+                    camposVacios = "";
+                    vista.tableDiscografica.clearSelection();
+                } else {
+                    modelo.modificarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
+                            vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()),
+                            (Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
+                    refrescarDiscografica();
+                }
+                borrarCamposDiscografica();
+                break;
+            case "borrarDiscografica":
+                modelo.eliminarDiscografica((Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
+                borrarCamposDiscografica();
+                refrescarDiscografica();
+                break;
         }
     }
-
     private void borrarCamposDiscografica() {
-        vista.boxNombreDiscografica.setSelectedIndex(-1);
+        vista.txtNombreDisc.setText("");
         vista.txtPaisDisc.setText("");
         vista.webTxtDisc.setText("");
         vista.emailTxtDis.setText("");
@@ -327,6 +360,11 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
     private void refrescarArtistas() {
         try {
             vista.tableArtista.setModel(construirTableModelArtista(modelo.consultarArtista()));
+            vista.boxArtDis.removeAllItems();
+            for(int i = 0; i < vista.dtmDiscografica.getRowCount(); i++) {
+                vista.boxDiscoArt.addItem(vista.dtmDiscografica.getValueAt(i, 0)+" - "+
+                        vista.dtmDiscografica.getValueAt(i, 1));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -335,6 +373,24 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
     private void refrescarDisco() {
         try {
             vista.tableDisco.setModel(construirTableModelDisco(modelo.consultarDisco()));
+            vista.boxDiscoDis.removeAllItems();
+            vista.boxArtDis.removeAllItems();
+            for(int i = 0; i < vista.dtmDiscografica.getRowCount(); i++) {
+                vista.boxDiscoDis.addItem(vista.dtmDiscografica.getValueAt(i, 0)+" - "+
+                        vista.dtmDiscografica.getValueAt(i, 1));
+            }
+            for(int i = 0; i < vista.dtmArtistas.getRowCount(); i++) {
+                vista.boxArtDis.addItem(vista.dtmArtistas.getValueAt(i, 0) + " - "+
+                        vista.dtmArtistas.getValueAt(i, 1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void refrescarDiscografica() {
+        try {
+            vista.tableDiscografica.setModel(construirTableModelDiscografica(modelo.consultarDiscografica()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -383,6 +439,29 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         vista.dtmDisco.setDataVector(data, columnNames);
 
         return vista.dtmDisco;
+
+    }
+
+    private DefaultTableModel construirTableModelDiscografica(ResultSet rs)
+            throws SQLException {
+
+        ResultSetMetaData metaData = rs.getMetaData();
+
+        // names of columns
+        Vector<String> columnNames = new Vector<>();
+        int columnCount = metaData.getColumnCount();
+        for (int column = 1; column <= columnCount; column++) {
+            columnNames.add(metaData.getColumnLabel(column));
+        }
+
+        // data of the table
+        Vector<Vector<Object>> data = new Vector<>();
+        setDataVector(rs, columnCount, data);
+
+        System.out.println(rs);
+        vista.dtmDiscografica.setDataVector(data, columnNames);
+
+        return vista.dtmDiscografica;
 
     }
 
@@ -459,6 +538,34 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         }
         if (vista.boxArtDis.getSelectedItem() == null) {
             camposVacios += "Artista \n";
+        }
+        return camposVacios;
+    }
+
+    private boolean algunCampoDiscograficaVacio() {
+        if (vista.txtPaisDisc.getText().isEmpty() || vista.txtNombreDisc.getText().isEmpty() || vista.txtTelefonoDisc.getText().isEmpty()
+         || vista.emailTxtDis.getText().isEmpty() || vista.webTxtDisc.getText().isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private String camposDiscograficaVacio() {
+        camposVacios = "Los siguientes campos estan vacios: \n";
+        if (vista.txtPaisDisc.getText().isEmpty()) {
+            camposVacios += "Pais \n";
+        }
+        if (vista.txtNombreDisc.getText().isEmpty()) {
+            camposVacios += "Nombre \n";
+        }
+        if (vista.txtTelefonoDisc.getText().isEmpty()) {
+            camposVacios += "Telefono \n";
+        }
+        if (vista.emailTxtDis.getText().isEmpty()) {
+            camposVacios += "Email";
+        }
+        if (vista.webTxtDisc.getText().isEmpty()) {
+            camposVacios += "Web";
         }
         return camposVacios;
     }

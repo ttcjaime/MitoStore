@@ -148,7 +148,7 @@ public class Modelo {
     }
 
     void insertarDiscografica(String nombre, String pais, String sitioWeb, String email, int numero) {
-        String sentenciaSql = "INSERT INTO artista (nombre, pais, sitio_web, email_contacto, telefono_contacto)" +
+        String sentenciaSql = "INSERT INTO discografica (nombre, pais, sitio_web, email_contacto, telefono_contacto)" +
                 "VALUES (?, ?, ?, ?, ?)";
         PreparedStatement sentencia = null;
 
@@ -279,7 +279,7 @@ public class Modelo {
     }
 
     void eliminarDiscografica(int idDiscografica) {
-        String sentenciaSql = "DELETE FROM discografica WHERE id_discografica = ?";
+        String sentenciaSql = "DELETE FROM discografica WHERE id = ?";
         PreparedStatement sentencia = null;
 
         try {
