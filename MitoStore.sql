@@ -34,7 +34,6 @@ foreign key (id_artista) references artista (id)
 );
 
 DELIMITER ||
-
 CREATE FUNCTION existeArtista(f_name varchar(50))
 RETURNS BIT
 BEGIN
@@ -43,9 +42,8 @@ SELECT 1
 FROM artista
 WHERE nombre = f_name
 );
-END;
+END ||
 
-DELIMITER ||
 CREATE FUNCTION existeDisco(f_name varchar(50))
 RETURNS BIT
 BEGIN
@@ -54,7 +52,7 @@ SELECT 1
 FROM disco
 WHERE nombre = f_name
 );
-END;
+END ||
 
 CREATE FUNCTION existeDiscografica(f_name varchar(50))
 RETURNS BIT
@@ -64,4 +62,5 @@ SELECT 1
 FROM discografica
 WHERE nombre = f_name
 );
-END;
+END ||
+DELIMITER ;

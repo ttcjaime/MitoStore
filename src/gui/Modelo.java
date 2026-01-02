@@ -63,6 +63,9 @@ public class Modelo {
         return conexion;
     }
 
+    public boolean isConectado() {
+        return conexion != null;
+    }
 
     private String leerFichero() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("basedatos_java.sql")) ;
@@ -85,7 +88,7 @@ public class Modelo {
         }
     }
 
-    void insertarArtista(String nombre, String genero, String pais, String discografica) {
+    void insertarArtista(String nombre, String genero, String pais, String discografica) throws NullPointerException {
         String sentenciaSql = "INSERT INTO artista (nombre, genero, pais, id_discografica)" +
                 "VALUES (?, ?, ?, ?)";
         PreparedStatement sentencia = null;
@@ -114,7 +117,7 @@ public class Modelo {
     }
 
     void insertarDisco(String nombre, String genero, int precio, LocalDate fechaLanzamiento, String color,
-                       String discografica, String canciones, String artista) {
+                       String discografica, String canciones, String artista) throws NullPointerException {
         String sentenciaSql = "INSERT INTO disco (nombre, genero, precio, fecha_lanzamiento, color, id_discografica, canciones, id_artista)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement sentencia = null;
@@ -147,34 +150,33 @@ public class Modelo {
 
     }
 
-    void insertarDiscografica(String nombre, String pais, String sitioWeb, String email, int numero) {
-        String sentenciaSql = "INSERT INTO discografica (nombre, pais, sitio_web, email_contacto, telefono_contacto)" +
-                "VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement sentencia = null;
+    void insertarDiscografica(String nombre, String pais, String sitioWeb, String email, int numero)   {
+            String sentenciaSql = "INSERT INTO discografica (nombre, pais, sitio_web, email_contacto, telefono_contacto)" +
+                    "VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement sentencia = null;
 
-        try {
-            sentencia = conexion.prepareStatement(sentenciaSql);
-            sentencia.setString(1, nombre);
-            sentencia.setString(2, pais);
-            sentencia.setString(3, sitioWeb);
-            sentencia.setString(4, email);
-            sentencia.setInt(5, numero);
-            sentencia.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (sentencia != null) {
-                try {
-                    sentencia.close();
-                } catch (SQLException sqle) {
-                    sqle.printStackTrace();
+            try {
+                sentencia = conexion.prepareStatement(sentenciaSql);
+                sentencia.setString(1, nombre);
+                sentencia.setString(2, pais);
+                sentencia.setString(3, sitioWeb);
+                sentencia.setString(4, email);
+                sentencia.setInt(5, numero);
+                sentencia.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (sentencia != null) {
+                    try {
+                        sentencia.close();
+                    } catch (SQLException sqle) {
+                        sqle.printStackTrace();
+                    }
                 }
             }
-        }
-
     }
 
-    void modificarArtista(String nombre, String genero, String pais, String discografica, int idArtista){
+    void modificarArtista(String nombre, String genero, String pais, String discografica, int idArtista) throws NullPointerException{
 
         String sentenciaSql = "UPDATE artista SET nombre = ?, genero = ?, pais = ?, discografica = ?" +
                 "WHERE id_artista = ?";
@@ -201,7 +203,7 @@ public class Modelo {
     }
 
     void modificarDisco(String nombre, String genero, int precio, LocalDate fechaLanzamiento, String color,
-                        String discografica, String canciones, String artista, int idDisco){
+                        String discografica, String canciones, String artista, int idDisco) throws NullPointerException {
 
         String sentenciaSql = "UPDATE disco SET nombre = ?, genero = ?, precio = ?, fecha_lanzamiento = ?, color = ?," +
                 " id_discografica = ?, canciones = ?, id_artista = ? " + "WHERE id = ?";
@@ -261,17 +263,20 @@ public class Modelo {
         }
     }
 
-    void eliminarArtista(int idAutor) {
+    void eliminarArtista(int idArtista) {
         String sentenciaSql = "DELETE FROM artista WHERE id = ?";
         PreparedStatement sentencia = null;
 
         try {
             sentencia = conexion.prepareStatement(sentenciaSql);
-            sentencia.setInt(1, idAutor);
+            sentencia.setInt(1, idArtista);
             sentencia.executeUpdate();
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        } finally {
+        } catch (SQLIntegrityConstraintViolationException e) {
+                throw new RuntimeException("Artista_con_relaciones", e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        finally {
             if (sentencia != null)
                 try {
                     sentencia.close();
@@ -289,9 +294,11 @@ public class Modelo {
             sentencia = conexion.prepareStatement(sentenciaSql);
             sentencia.setInt(1, idDiscografica);
             sentencia.executeUpdate();
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        } finally {
+        } catch (SQLIntegrityConstraintViolationException e) {
+            throw new RuntimeException("Discografica_con_relaciones", e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }  finally {
             if (sentencia != null)
                 try {
                     sentencia.close();

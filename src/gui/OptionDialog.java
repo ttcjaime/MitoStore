@@ -9,8 +9,9 @@ public class OptionDialog extends JDialog {
     JTextField txtUsuario;
      JPasswordField txtPswd;
      JPasswordField txtAdminPswd;
+     JButton btnOpcionesGuardar;
 
-     private Frame owner;
+    private Frame owner;
 
     public OptionDialog(Frame owner) {
         //modal true, desactiva el resto de ventanas

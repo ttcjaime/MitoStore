@@ -17,4 +17,8 @@ public class Util {
         JOptionPane.showMessageDialog(null,mensaje,"Información",JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public static int showWindowOption(String mensaje, String titulo) {
+        return JOptionPane.showConfirmDialog(null, mensaje, "Error", JOptionPane.YES_NO_OPTION);
+    }
+
 }
