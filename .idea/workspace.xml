@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controlador.java" afterDir="false" />
@@ -48,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="157" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="1" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="219" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -117,6 +115,7 @@
       <workItem from="1766938670440" duration="6022000" />
       <workItem from="1767025936780" duration="7611000" />
       <workItem from="1767208260710" duration="4544000" />
+      <workItem from="1767308646072" duration="7990000" />
     </task>
     <servers />
   </component>

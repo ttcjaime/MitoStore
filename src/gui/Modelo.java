@@ -29,7 +29,7 @@ public class Modelo {
         return adminPassword;
     }
 
-    private Connection conexion;
+    private static Connection conexion;
 
     void conectar() {
 
@@ -90,7 +90,7 @@ public class Modelo {
                 "VALUES (?, ?, ?, ?)";
         PreparedStatement sentencia = null;
 
-        int idDiscografica = Integer.valueOf(discografica.split("")[0]);
+        int idDiscografica = obtenerIdDiscografica(discografica);
 
         try {
             sentencia = conexion.prepareStatement(sentenciaSql);
@@ -119,8 +119,8 @@ public class Modelo {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement sentencia = null;
 
-        int idDiscografica = Integer.valueOf(discografica.split("")[0]);
-        int idArtista = Integer.valueOf(artista.split("")[0]);
+        int idDiscografica = obtenerIdDiscografica(discografica);
+        int idArtista = obtenerIdArtista(artista);
 
         try {
             sentencia = conexion.prepareStatement(sentenciaSql);
@@ -203,9 +203,12 @@ public class Modelo {
     void modificarDisco(String nombre, String genero, int precio, LocalDate fechaLanzamiento, String color,
                         String discografica, String canciones, String artista, int idDisco){
 
-        String sentenciaSql = "UPDATE disco SET nombre = ?, genero = ?, precio = ?, fechaLanzamiento = ?, color = ?," +
-                " discografica = ?, canciones = ?, artista = ?" + "WHERE id_disco = ?";
+        String sentenciaSql = "UPDATE disco SET nombre = ?, genero = ?, precio = ?, fecha_lanzamiento = ?, color = ?," +
+                " id_discografica = ?, canciones = ?, id_artista = ? " + "WHERE id = ?";
         PreparedStatement sentencia = null;
+
+        int idDiscografica = obtenerIdDiscografica(discografica);
+        int idArtista = obtenerIdArtista(artista);
 
         try {
             sentencia = conexion.prepareStatement(sentenciaSql);
@@ -214,9 +217,9 @@ public class Modelo {
             sentencia.setInt(3, precio);
             sentencia.setDate(4, Date.valueOf(fechaLanzamiento));
             sentencia.setString(5, color);
-            sentencia.setString(6, discografica);
-            sentencia.setString(7, color);
-            sentencia.setString(8, artista);
+            sentencia.setInt(6, idDiscografica);
+            sentencia.setString(7, canciones);
+            sentencia.setInt(8, idArtista);
             sentencia.setInt(9, idDisco);
             sentencia.executeUpdate();
         } catch (SQLException sqle) {
@@ -258,8 +261,8 @@ public class Modelo {
         }
     }
 
-    void eliminarAutor(int idAutor) {
-        String sentenciaSql = "DELETE FROM autor WHERE id_autor = ?";
+    void eliminarArtista(int idAutor) {
+        String sentenciaSql = "DELETE FROM artista WHERE id = ?";
         PreparedStatement sentencia = null;
 
         try {
@@ -299,7 +302,7 @@ public class Modelo {
     }
 
     void eliminarDisco(int idDisco) {
-        String sentenciaSql = "DELETE FROM autor WHERE id_autor = ?";
+        String sentenciaSql = "DELETE FROM disco WHERE id = ?";
         PreparedStatement sentencia = null;
 
         try {
@@ -332,6 +335,66 @@ public class Modelo {
         sentencia = conexion.prepareStatement(sentenciaSql);
         resultado = sentencia.executeQuery();
         return resultado;
+    }
+
+    public static int obtenerIdArtista(String nombre) {
+        String sentenciaSql = "SELECT id FROM artista WHERE nombre = ?";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+
+        try {
+            sentencia = conexion.prepareStatement(sentenciaSql);
+            sentencia.setString(1, nombre);
+            resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                return resultado.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultado != null)
+                    resultado.close();
+                if (sentencia != null)
+                    sentencia.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return -1;
+
+    }
+
+    public static int obtenerIdDiscografica(String nombre) {
+        String sentenciaSql = "SELECT id FROM discografica WHERE nombre = ?";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+
+        try {
+            sentencia = conexion.prepareStatement(sentenciaSql);
+            sentencia.setString(1, nombre);
+            resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                return resultado.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultado != null)
+                    resultado.close();
+                if (sentencia != null)
+                    sentencia.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return -1;
+
     }
 
     ResultSet consultarDiscografica() throws SQLException {
