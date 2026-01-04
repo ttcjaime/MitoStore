@@ -29,7 +29,7 @@ public class Modelo {
         return adminPassword;
     }
 
-    private static Connection conexion;
+    private Connection conexion;
 
     void conectar() {
 
@@ -344,7 +344,7 @@ public class Modelo {
         return resultado;
     }
 
-    public static int obtenerIdArtista(String nombre) {
+    public int obtenerIdArtista(String nombre) {
         String sentenciaSql = "SELECT id FROM artista WHERE nombre = ?";
         PreparedStatement sentencia = null;
         ResultSet resultado = null;
@@ -374,7 +374,7 @@ public class Modelo {
 
     }
 
-    public static int obtenerIdDiscografica(String nombre) {
+    public int obtenerIdDiscografica(String nombre) {
         String sentenciaSql = "SELECT id FROM discografica WHERE nombre = ?";
         PreparedStatement sentencia = null;
         ResultSet resultado = null;
@@ -432,6 +432,135 @@ public class Modelo {
                 "FROM disco d " +
                 "INNER JOIN discografica ds ON ds.id = d.id_discografica " +
                 "INNER JOIN artista a ON a.id = d.id_artista";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    public ResultSet buscarArtista(String nombre) throws SQLException {
+        if (conexion==null) {
+            return null;
+        }
+        if (conexion.isClosed()) {
+            return null;
+        }
+        String consulta= "SELECT a.id as 'ID', " +
+                "a.nombre as 'Artista', " +
+                "a.pais as 'Pais', " +
+                "a.genero as 'Genero', " +
+                "d.nombre as 'Discografica' "+
+                "FROM artista a " +
+                "INNER JOIN discografica d " +
+                "ON d.id = a.id_discografica WHERE a.nombre = ?";
+        PreparedStatement sentencia=null;
+        sentencia=conexion.prepareStatement(consulta);
+
+        sentencia.setString(1,nombre);
+
+        ResultSet resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    public ResultSet buscarDisco(String nombre) throws SQLException {
+        if (conexion==null) {
+            return null;
+        }
+        if (conexion.isClosed()) {
+            return null;
+        }
+        String consulta= "SELECT d.id AS ID, " +
+                "d.nombre AS Disco, " +
+                "d.genero AS Genero, " +
+                "d.precio AS Precio, " +
+                "d.fecha_lanzamiento AS Fecha_Lanzamiento, " +
+                "d.color AS Color, " +
+                "d.canciones AS Canciones, " +
+                "ds.nombre AS Discografica, " +
+                "a.nombre AS Artista " +
+                "FROM disco d " +
+                "INNER JOIN discografica ds ON ds.id = d.id_discografica " +
+                "INNER JOIN artista a ON a.id = d.id_artista WHERE d.nombre = ?";
+        PreparedStatement sentencia=null;
+        sentencia=conexion.prepareStatement(consulta);
+
+        sentencia.setString(1,nombre);
+
+        ResultSet resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    public ResultSet buscarDiscografica(String nombre) throws SQLException {
+        if (conexion==null) {
+            return null;
+        }
+        if (conexion.isClosed()) {
+            return null;
+        }
+        String consulta = "SELECT d.id as 'ID', " +
+                "d.nombre as 'Discografica', " +
+                "d.pais as 'Pais', " +
+                "d.sitio_web as 'Web', " +
+                "d.email_contacto as 'Email', " +
+                "d.telefono_contacto as 'Telefono'" +
+                "FROM discografica d WHERE d.nombre = ?";
+        PreparedStatement sentencia=null;
+        sentencia=conexion.prepareStatement(consulta);
+
+        sentencia.setString(1,nombre);
+
+        ResultSet resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    ResultSet ordenarArtista() throws SQLException {
+        String sentenciaSql = "SELECT a.id as 'ID', " +
+                "a.nombre as 'Artista', " +
+                "a.pais as 'Pais', " +
+                "a.genero as 'Genero', " +
+                "d.nombre as 'Discografica' "+
+                "FROM artista a " +
+                "INNER JOIN discografica d " +
+                "ON d.id = a.id_discografica " +
+                "ORDER BY a.nombre ASC";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    ResultSet ordenarDiscografica() throws SQLException {
+        String sentenciaSql = "SELECT d.id as 'ID', " +
+                "d.nombre as 'Discografica', " +
+                "d.pais as 'Pais', " +
+                "d.sitio_web as 'Web', " +
+                "d.email_contacto as 'Email', " +
+                "d.telefono_contacto as 'Telefono'" +
+                "FROM discografica d " +
+                "ORDER BY d.nombre ASC";
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+        sentencia = conexion.prepareStatement(sentenciaSql);
+        resultado = sentencia.executeQuery();
+        return resultado;
+    }
+
+    ResultSet ordenarDisco() throws SQLException {
+        String sentenciaSql = "SELECT d.id AS ID, " +
+                "d.nombre AS Disco, " +
+                "d.genero AS Genero, " +
+                "d.precio AS Precio, " +
+                "d.fecha_lanzamiento AS Fecha_Lanzamiento, " +
+                "d.color AS Color, " +
+                "d.canciones AS Canciones, " +
+                "ds.nombre AS Discografica, " +
+                "a.nombre AS Artista " +
+                "FROM disco d " +
+                "INNER JOIN discografica ds ON ds.id = d.id_discografica " +
+                "INNER JOIN artista a ON a.id = d.id_artista " +
+                "ORDER BY d.nombre ASC";
         PreparedStatement sentencia = null;
         ResultSet resultado = null;
         sentencia = conexion.prepareStatement(sentenciaSql);

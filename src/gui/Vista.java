@@ -106,6 +106,12 @@ public class Vista extends JFrame {
      JPanel panelBorrarDis;
      JPanel panelBorrarDisc;
      JTextField txtNombreDisc;
+     JButton btnVolverArt;
+     JPanel panelVolverArt;
+     JButton btnVolverDisco;
+     JPanel panelVolverDis;
+     JPanel panelVolverDisc;
+     JButton btnVolverDisc;
 
 
     //JMenuBar
@@ -138,6 +144,7 @@ public class Vista extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         optionDialog = new OptionDialog(this);
+        visibility();
         setMenu();
         setAdminDialog();
         setEnumComboBox();
@@ -218,6 +225,12 @@ public class Vista extends JFrame {
         } else {
             return 0; // o lanzar una excepción
         }
+    }
+
+    public void visibility() {
+        btnVolverArt.setVisible(false);
+        btnVolverDisco.setVisible(false);
+        btnVolverDisc.setVisible(false);
     }
 
 }

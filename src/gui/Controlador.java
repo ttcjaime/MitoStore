@@ -48,7 +48,25 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         vista.btnBorrarDisc.setActionCommand("borrarDiscografica");
         vista.optionDialog.btnOpcionesGuardar.addActionListener(listener);
         vista.optionDialog.btnOpcionesGuardar.setActionCommand("guardarOpciones");
+        vista.btnBuscarArt.addActionListener(listener);
+        vista.btnBuscarArt.setActionCommand("buscarArtista");
         vista.itemDesconectar.addActionListener(listener);
+        vista.btnBuscarDis.addActionListener(listener);
+        vista.btnBuscarDis.setActionCommand("buscarDisco");
+        vista.btnBuscarDisc.addActionListener(listener);
+        vista.btnBuscarDisc.setActionCommand("buscarDiscografica");
+        vista.btnVolverDisco.addActionListener(listener);
+        vista.btnVolverDisco.setActionCommand("volverDisco");
+        vista.btnVolverDisc.addActionListener(listener);
+        vista.btnVolverDisc.setActionCommand("volverDiscografica");
+        vista.btnVolverArt.addActionListener(listener);
+        vista.btnVolverArt.setActionCommand("volverArtista");
+        vista.btnOrdenarArt.addActionListener(listener);
+        vista.btnOrdenarArt.setActionCommand("ordenarArtista");
+        vista.btnOrdenarDis.addActionListener(listener);
+        vista.btnOrdenarDis.setActionCommand("ordenarDisco");
+        vista.btnOrdenar.addActionListener(listener);
+        vista.btnOrdenar.setActionCommand("ordenarDiscografica");
         vista.itemOpciones.addActionListener(listener);
         vista.itemSalir.addActionListener(listener);
         vista.btnValidate.addActionListener(listener);
@@ -397,6 +415,84 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                     }
                     borrarCamposDiscografica();
                     refrescarTodo();
+                }
+                break;
+            case "buscarArtista":
+                try {
+                    if (vista.txtBuscarArt.getText().equals("")) {
+                        Util.showWarningAlert("Introduce un artista a buscar");
+                    } else if (!modelo.existeArtista(vista.txtBuscarArt.getText())) {
+                        Util.showWarningAlert("El artista " + vista.txtBuscarArt.getText() + " no existe");
+                    } else {
+                        construirTableModelArtista(modelo.buscarArtista(vista.txtBuscarArt.getText()));
+                        vista.btnVolverArt.setVisible(true);
+                        vista.txtBuscarArt.setText("");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case "buscarDiscografica":
+                try {
+                    if (vista.txtBuscarDisc.getText().equals("")) {
+                        Util.showWarningAlert("Introduce una discografica a buscar");
+                    } else if (!modelo.existeDiscografica(vista.txtBuscarDisc.getText())) {
+                        Util.showWarningAlert("La discografica " + vista.txtBuscarDisc + " no existe");
+                    } else {
+                        construirTableModelDiscografica(modelo.buscarDiscografica(vista.txtBuscarDisc.getText()));
+                        vista.btnVolverDisc.setVisible(true);
+                        vista.txtBuscarDisc.setText("");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case "buscarDisco":
+                try {
+                    if (vista.txtBuscarDis.getText().equals("")) {
+                        Util.showWarningAlert("Introduce un disco a buscar");
+                    } else if (!modelo.existeDisco(vista.txtBuscarDis.getText())) {
+                        Util.showWarningAlert("El disco " + vista.txtBuscarDis.getText() + " no existe");
+                    } else {
+                        construirTableModelDisco(modelo.buscarDisco(vista.txtBuscarDis.getText()));
+                        vista.btnVolverDisco.setVisible(true);
+                        vista.txtBuscarDis.setText("");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case "volverDisco":
+                refrescarTodo();
+                vista.btnVolverDisco.setVisible(false);
+                break;
+            case "volverArtista":
+                refrescarTodo();
+                vista.btnVolverArt.setVisible(false);
+                break;
+            case "volverDiscografica":
+                refrescarTodo();
+                vista.btnVolverDisc.setVisible(false);
+                break;
+            case "ordenarArtista":
+                try {
+                    construirTableModelArtista(modelo.ordenarArtista());
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case "ordenarDiscografica":
+                try {
+                    construirTableModelDiscografica(modelo.ordenarDiscografica());
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case "ordenarDisco":
+                try {
+                    construirTableModelDisco(modelo.ordenarDisco());
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
                 break;
         }

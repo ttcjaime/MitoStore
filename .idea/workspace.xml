@@ -3,17 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MitoStore.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MitoStore.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OptionDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OptionDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OptionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OptionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Util.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +58,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -123,6 +122,8 @@
       <workItem from="1767208260710" duration="4544000" />
       <workItem from="1767308646072" duration="7990000" />
       <workItem from="1767377697522" duration="7511000" />
+      <workItem from="1767544288909" duration="1757000" />
+      <workItem from="1767546187444" duration="6000000" />
     </task>
     <servers />
   </component>
