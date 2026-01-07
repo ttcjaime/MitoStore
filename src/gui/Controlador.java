@@ -284,9 +284,13 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                         camposVacios = "";
                         vista.tableArtista.clearSelection();
                     } else {
-                        modelo.modificarArtista(vista.txtNombreArt.getText(), (String) vista.boxGeneroArt.getSelectedItem(),
-                                vista.txtPaisArt.getText(), (String) vista.boxDiscoArt.getSelectedItem(),
-                                (Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                        try {
+                            modelo.modificarArtista(vista.txtNombreArt.getText(), (String) vista.boxGeneroArt.getSelectedItem(),
+                                    vista.txtPaisArt.getText(), (String) vista.boxDiscoArt.getSelectedItem(),
+                                    (Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                        } catch (ArrayIndexOutOfBoundsException aiobe) {
+                            Util.showErrorAlert("Selecciona un artista a modificar");
+                        }
                     }
                     borrarCamposArtista();
                     refrescarArtistas();
@@ -298,7 +302,11 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                             "Para conectarte ve a Archivo -> Conectar");
                 } else {
                     try {
-                        modelo.eliminarArtista((Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                        try {
+                            modelo.eliminarArtista((Integer) vista.tableArtista.getValueAt(vista.tableArtista.getSelectedRow(), 0));
+                        } catch (ArrayIndexOutOfBoundsException aiobe) {
+                            Util.showErrorAlert("Selecciona un artista a borrar");
+                        }
                     } catch (RuntimeException ex) {
                         if ("Artista_con_relaciones".equals(ex.getMessage())) {
                             Util.showErrorAlert("Estas intentando borrar un artista que pertenece a un disco \n" +
@@ -327,6 +335,7 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                         modelo.insertarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
                                 vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
                                 vista.txtCancionesDis.getText(), (String) vista.boxArtDis.getSelectedItem());
+                        vista.spinnerPrecio.setValue(1);
                     }
                     borrarCamposDiscos();
                     refrescarDisco();
@@ -342,9 +351,13 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                         camposVacios = "";
                         vista.tableDisco.clearSelection();
                     } else {
-                        modelo.modificarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
-                                vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
-                                vista.txtCancionesDis.getText(), (String) vista.boxArtDis.getSelectedItem(), (Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
+                        try {
+                            modelo.modificarDisco(vista.txtNombreDis.getText(), (String) vista.boxGeneroDis.getSelectedItem(), vista.getPrecio(),
+                                    vista.fechaDis.getDate(), (String) vista.boxColores.getSelectedItem(), (String) vista.boxDiscoDis.getSelectedItem(),
+                                    vista.txtCancionesDis.getText(), (String) vista.boxArtDis.getSelectedItem(), (Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
+                        } catch (ArrayIndexOutOfBoundsException aiobe) {
+                            Util.showErrorAlert("Selecciona un disco a modificar");
+                        }
                     }
                     borrarCamposDiscos();
                     refrescarDisco();
@@ -355,9 +368,13 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                     Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
                             "Para conectarte ve a Archivo -> Conectar");
                 } else {
-                    modelo.eliminarDisco((Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
-                    borrarCamposDiscos();
-                    refrescarDisco();
+                    try {
+                        modelo.eliminarDisco((Integer) vista.tableDisco.getValueAt(vista.tableDisco.getSelectedRow(), 0));
+                        borrarCamposDiscos();
+                        refrescarDisco();
+                    } catch (ArrayIndexOutOfBoundsException aiobe) {
+                        Util.showErrorAlert("Selecciona un disco a borrar");
+                    }
                 }
                 break;
             case "addDiscografica":
@@ -373,9 +390,13 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                                 "Introduce una diferente");
                         vista.tableDiscografica.clearSelection();
                     } else {
-                        modelo.insertarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
-                                vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()));
-                        refrescarTodo();
+                        try {
+                            modelo.insertarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
+                                    vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()));
+                            refrescarTodo();
+                        } catch (NumberFormatException nfe) {
+                            Util.showErrorAlert("Introduce un número correcto");
+                        }
                     }
                     borrarCamposDiscografica();
                 }
@@ -390,10 +411,14 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                         camposVacios = "";
                         vista.tableDiscografica.clearSelection();
                     } else {
-                        modelo.modificarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
-                                vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()),
-                                (Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
-                        refrescarTodo();
+                        try {
+                            modelo.modificarDiscografica(vista.txtNombreDisc.getText(), vista.txtPaisDisc.getText(), vista.webTxtDisc.getText(),
+                                    vista.emailTxtDis.getText(), Integer.parseInt(vista.txtTelefonoDisc.getText()),
+                                    (Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
+                            refrescarTodo();
+                        } catch (ArrayIndexOutOfBoundsException aiobe) {
+                            Util.showErrorAlert("Selecciona una discografica a editar");
+                        }
                     }
                     borrarCamposDiscografica();
                 }
@@ -404,7 +429,11 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                             "Para conectarte ve a Archivo -> Conectar");
                 } else {
                     try {
-                        modelo.eliminarDiscografica((Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
+                        try {
+                            modelo.eliminarDiscografica((Integer) vista.tableDiscografica.getValueAt(vista.tableDiscografica.getSelectedRow(), 0));
+                        } catch (ArrayIndexOutOfBoundsException aiobe) {
+                            Util.showErrorAlert("Selecciona una discografica a borrar");
+                        }
                     } catch (RuntimeException ex) {
                         if ("Discografica_con_relaciones".equals(ex.getMessage())) {
                             Util.showErrorAlert("Estas intentando borrar una discografica que esta conectada a un artista o disco \n" +
@@ -418,81 +447,126 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
                 }
                 break;
             case "buscarArtista":
-                try {
-                    if (vista.txtBuscarArt.getText().equals("")) {
-                        Util.showWarningAlert("Introduce un artista a buscar");
-                    } else if (!modelo.existeArtista(vista.txtBuscarArt.getText())) {
-                        Util.showWarningAlert("El artista " + vista.txtBuscarArt.getText() + " no existe");
-                    } else {
-                        construirTableModelArtista(modelo.buscarArtista(vista.txtBuscarArt.getText()));
-                        vista.btnVolverArt.setVisible(true);
-                        vista.txtBuscarArt.setText("");
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        if (vista.txtBuscarArt.getText().equals("")) {
+                            Util.showWarningAlert("Introduce un artista a buscar");
+                        } else if (!modelo.existeArtista(vista.txtBuscarArt.getText())) {
+                            Util.showWarningAlert("El artista " + vista.txtBuscarArt.getText() + " no existe");
+                        } else {
+                            construirTableModelArtista(modelo.buscarArtista(vista.txtBuscarArt.getText()));
+                            vista.btnVolverArt.setVisible(true);
+                            vista.txtBuscarArt.setText("");
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
                     }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
                 }
                 break;
             case "buscarDiscografica":
-                try {
-                    if (vista.txtBuscarDisc.getText().equals("")) {
-                        Util.showWarningAlert("Introduce una discografica a buscar");
-                    } else if (!modelo.existeDiscografica(vista.txtBuscarDisc.getText())) {
-                        Util.showWarningAlert("La discografica " + vista.txtBuscarDisc + " no existe");
-                    } else {
-                        construirTableModelDiscografica(modelo.buscarDiscografica(vista.txtBuscarDisc.getText()));
-                        vista.btnVolverDisc.setVisible(true);
-                        vista.txtBuscarDisc.setText("");
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        if (vista.txtBuscarDisc.getText().equals("")) {
+                            Util.showWarningAlert("Introduce una discografica a buscar");
+                        } else if (!modelo.existeDiscografica(vista.txtBuscarDisc.getText())) {
+                            Util.showWarningAlert("La discografica " + vista.txtBuscarDisc + " no existe");
+                        } else {
+                            construirTableModelDiscografica(modelo.buscarDiscografica(vista.txtBuscarDisc.getText()));
+                            vista.btnVolverDisc.setVisible(true);
+                            vista.txtBuscarDisc.setText("");
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
                     }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
                 }
                 break;
             case "buscarDisco":
-                try {
-                    if (vista.txtBuscarDis.getText().equals("")) {
-                        Util.showWarningAlert("Introduce un disco a buscar");
-                    } else if (!modelo.existeDisco(vista.txtBuscarDis.getText())) {
-                        Util.showWarningAlert("El disco " + vista.txtBuscarDis.getText() + " no existe");
-                    } else {
-                        construirTableModelDisco(modelo.buscarDisco(vista.txtBuscarDis.getText()));
-                        vista.btnVolverDisco.setVisible(true);
-                        vista.txtBuscarDis.setText("");
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        if (vista.txtBuscarDis.getText().equals("")) {
+                            Util.showWarningAlert("Introduce un disco a buscar");
+                        } else if (!modelo.existeDisco(vista.txtBuscarDis.getText())) {
+                            Util.showWarningAlert("El disco " + vista.txtBuscarDis.getText() + " no existe");
+                        } else {
+                            construirTableModelDisco(modelo.buscarDisco(vista.txtBuscarDis.getText()));
+                            vista.btnVolverDisco.setVisible(true);
+                            vista.txtBuscarDis.setText("");
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
                     }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
                 }
                 break;
             case "volverDisco":
-                refrescarTodo();
-                vista.btnVolverDisco.setVisible(false);
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    refrescarTodo();
+                    vista.btnVolverDisco.setVisible(false);
+                }
                 break;
             case "volverArtista":
-                refrescarTodo();
-                vista.btnVolverArt.setVisible(false);
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    refrescarTodo();
+                    vista.btnVolverArt.setVisible(false);
+                }
                 break;
             case "volverDiscografica":
-                refrescarTodo();
-                vista.btnVolverDisc.setVisible(false);
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    refrescarTodo();
+                    vista.btnVolverDisc.setVisible(false);
+                }
                 break;
             case "ordenarArtista":
-                try {
-                    construirTableModelArtista(modelo.ordenarArtista());
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        construirTableModelArtista(modelo.ordenarArtista());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 break;
             case "ordenarDiscografica":
-                try {
-                    construirTableModelDiscografica(modelo.ordenarDiscografica());
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        construirTableModelDiscografica(modelo.ordenarDiscografica());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 break;
             case "ordenarDisco":
-                try {
-                    construirTableModelDisco(modelo.ordenarDisco());
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (!modelo.isConectado()) {
+                    Util.showErrorAlert("Estas desconectado de la base de datos.\n" +
+                            "Para conectarte ve a Archivo -> Conectar");
+                } else {
+                    try {
+                        construirTableModelDisco(modelo.ordenarDisco());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 break;
         }
@@ -520,7 +594,7 @@ public class Controlador implements ActionListener, ItemListener, ListSelectionL
         vista.boxDiscoDis.setSelectedIndex(-1);
         vista.boxColores.setSelectedIndex(-1);
         vista.fechaDis.setText("");
-        vista.spinnerPrecio.setValue(0);
+        vista.spinnerPrecio.setValue(1);
     }
 
     private void refrescarArtistas() {

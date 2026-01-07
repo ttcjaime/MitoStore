@@ -35,12 +35,11 @@ public class Modelo {
 
         try {
             conexion = DriverManager.getConnection(
-                    "jdbc:mysql://"+"localhost"+":3306/mitostore","root", "");
-            System.out.println("Conectado");
+                    "jdbc:mysql://"+ip+":3306/mitostore",user, password);
         } catch (SQLException sqle) {
             try {
                 conexion = DriverManager.getConnection(
-                        "jdbc:mysql://"+"localhost"+":3306/mitostore","root", "");
+                        "jdbc:mysql://"+ip+":3306/",user, password);
 
                 PreparedStatement statement = null;
 
@@ -68,15 +67,26 @@ public class Modelo {
     }
 
     private String leerFichero() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("basedatos_java.sql")) ;
-        String linea;
-        StringBuilder stringBuilder = new StringBuilder();
-        while ((linea = reader.readLine()) != null) {
-            stringBuilder.append(linea);
-            stringBuilder.append(" ");
+        InputStream is = getClass()
+                .getClassLoader()
+                .getResourceAsStream("db/mitostore_java.sql");
+
+        if (is == null) {
+            throw new FileNotFoundException("No se encuentra db/mitostore_java.sql");
         }
 
-        return stringBuilder.toString();
+        StringBuilder sb = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is))) {
+
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                sb.append(linea).append('\n');
+            }
+        }
+
+        return sb.toString();
     }
 
     void desconectar() {
@@ -178,16 +188,18 @@ public class Modelo {
 
     void modificarArtista(String nombre, String genero, String pais, String discografica, int idArtista) throws NullPointerException{
 
-        String sentenciaSql = "UPDATE artista SET nombre = ?, genero = ?, pais = ?, discografica = ?" +
-                "WHERE id_artista = ?";
+        String sentenciaSql = "UPDATE artista SET nombre = ?, genero = ?, pais = ?, id_discografica = ?" +
+                " WHERE id = ?";
         PreparedStatement sentencia = null;
+
+        int idDiscografica = obtenerIdDiscografica(discografica);
 
         try {
             sentencia = conexion.prepareStatement(sentenciaSql);
             sentencia.setString(1, nombre);
             sentencia.setString(2, genero);
             sentencia.setString(3, pais);
-            sentencia.setString(4, discografica);
+            sentencia.setInt(4, idDiscografica);
             sentencia.setInt(5, idArtista);
             sentencia.executeUpdate();
         } catch (SQLException sqle) {
@@ -239,7 +251,7 @@ public class Modelo {
     void modificarDiscografica(String nombre, String pais, String sitioWeb, String email, int numero, int idDiscografica){
 
         String sentenciaSql = "UPDATE discografica SET nombre = ?, pais = ?, sitio_web = ?, email_contacto = ?, telefono_contacto = ?" +
-                "WHERE id_discografica = ?";
+                " WHERE id = ?";
         PreparedStatement sentencia = null;
 
         try {
@@ -575,42 +587,45 @@ public class Modelo {
             prop.setProperty("user", user);
             prop.setProperty("pass", pass);
             prop.setProperty("admin", adminPass);
-            OutputStream out = new FileOutputStream("config.properties");
-            prop.store(out, null);
+
+            File file = new File("config.properties");
+            try (OutputStream out = new FileOutputStream(file)) {
+                prop.store(out, null);
+            }
+
+            this.ip = ip;
+            this.user = user;
+            this.password = pass;
+            this.adminPassword = adminPass;
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        this.ip = ip;
-        this.user = user;
-        this.password = pass;
-        this.adminPassword = adminPass;
     }
 
+
     private void getPropValues() {
-        InputStream inputStream = null;
-        try {
+        try (InputStream inputStream =
+                     getClass().getClassLoader()
+                             .getResourceAsStream("config.properties")) {
+
+            if (inputStream == null) {
+                throw new RuntimeException("config.properties no encontrado");
+            }
+
             Properties prop = new Properties();
-            String propFileName = "config.properties";
-
-            inputStream = new FileInputStream(propFileName);
-
             prop.load(inputStream);
+
             ip = prop.getProperty("ip");
             user = prop.getProperty("user");
             password = prop.getProperty("pass");
             adminPassword = prop.getProperty("admin");
 
-        } catch (Exception e) {
-            System.out.println("Exception: " + e);
-        } finally {
-            try {
-                if (inputStream != null) inputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
 
     public boolean existeArtista(String nombre) {
         String artistaConsulta = "SELECT existeArtista(?)";

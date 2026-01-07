@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PracticaUD2JaimeMendoza:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="577bbdc2-d0e8-420a-ab2b-d71b627c8b09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PracticaUD2JaimeMendoza_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/calendario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/correo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/disco-de-vinilo-24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/disco-duro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/en-todo-el-mundo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/euro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/musica-alternativa-24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/musica-de-usuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/musica.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/paleta-de-color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/sitio-web.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/telefono-inteligente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imagenes/volver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/mitostore_java.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MitoStore.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/MitoStore.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PracticaUD2JaimeMendoza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PracticaUD2JaimeMendoza.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Controlador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Modelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracticaUD2JaimeMendoza/gui/Vista.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Vista.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,23 +71,29 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="228" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="219" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="284" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mitostore_java.sql" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza" />
       <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\libs" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\src" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\out\artifacts\PracticaUD2JaimeMendoza_jar" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\imagenes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\src\db" />
+      <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza\src" />
       <recent name="C:\Users\jaimi\Documents\Colegio Montessori\2do Año\Acceso a Datos\PracticaUD2JaimeMendoza" />
     </key>
   </component>
@@ -124,6 +152,11 @@
       <workItem from="1767377697522" duration="7511000" />
       <workItem from="1767544288909" duration="1757000" />
       <workItem from="1767546187444" duration="6000000" />
+      <workItem from="1767631280315" duration="4500000" />
+      <workItem from="1767637039901" duration="2742000" />
+      <workItem from="1767658532748" duration="2019000" />
+      <workItem from="1767698625423" duration="3022000" />
+      <workItem from="1767796467768" duration="3974000" />
     </task>
     <servers />
   </component>

@@ -61,6 +61,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="musica-de-usuario.png"/>
                           <text value="Nombre"/>
                         </properties>
                       </component>
@@ -88,6 +89,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="musica.png"/>
                           <text value="Genero"/>
                         </properties>
                       </component>
@@ -113,6 +115,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="en-todo-el-mundo.png"/>
                           <text value="Pais"/>
                         </properties>
                       </component>
@@ -123,7 +126,8 @@
                           </grid>
                         </constraints>
                         <properties>
-                          <foreground color="-923952"/>
+                          <foreground color="-16777216"/>
+                          <selectedTextColor color="-16777216"/>
                         </properties>
                       </component>
                     </children>
@@ -154,6 +158,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="disco-duro.png"/>
                           <text value="Discografica"/>
                         </properties>
                       </component>
@@ -371,6 +376,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="disco-de-vinilo-24.png"/>
                           <text value="Nombre"/>
                         </properties>
                       </component>
@@ -398,6 +404,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="musica.png"/>
                           <text value="Genero"/>
                         </properties>
                       </component>
@@ -423,6 +430,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="euro.png"/>
                           <text value="Precio"/>
                         </properties>
                       </component>
@@ -460,6 +468,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="calendario.png"/>
                           <text value="Fecha de Lanzamiento"/>
                         </properties>
                       </component>
@@ -485,6 +494,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="paleta-de-color.png"/>
                           <text value="Color"/>
                         </properties>
                       </component>
@@ -519,6 +529,7 @@
                         <constraints/>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="disco-duro.png"/>
                           <text value="Discografica"/>
                         </properties>
                       </component>
@@ -543,6 +554,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="musica-alternativa-24.png"/>
                           <text value="Canciones"/>
                         </properties>
                       </component>
@@ -567,6 +579,7 @@
                         <constraints/>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="musica-de-usuario.png"/>
                           <text value="Artista"/>
                         </properties>
                       </component>
@@ -778,6 +791,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="disco-duro.png"/>
                           <text value="Nombre"/>
                         </properties>
                       </component>
@@ -805,6 +819,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="en-todo-el-mundo.png"/>
                           <text value="Pais"/>
                         </properties>
                       </component>
@@ -832,6 +847,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="sitio-web.png"/>
                           <text value="Sitio Web"/>
                         </properties>
                       </component>
@@ -874,6 +890,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="correo.png"/>
                           <text value="Email"/>
                         </properties>
                       </component>
@@ -901,6 +918,7 @@
                         </constraints>
                         <properties>
                           <foreground color="-13951458"/>
+                          <icon value="telefono-inteligente.png"/>
                           <text value="Telefono"/>
                         </properties>
                       </component>
